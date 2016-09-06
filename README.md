@@ -1,8 +1,11 @@
-Cordova CameraPreview Plugin
+cordova-plugin-camera-preview
 ====================
 
-Cordova plugin that allows camera interaction from HTML code.<br/>
-Show camera preview popup on top of the HTML.<br/>
+Cordova plugin that allows camera interaction from HTML cod for showing camera preview below or above the HTML.<br/>
+
+**June 13, 2016 - I dont have any time to work on this recently. If people want to contribute lets get a good working version over here [westonganger/cordova-plugin-camera-preview](https://github.com/westonganger/cordova-plugin-camera-preview/tree/skanygin) with some additional features and nicer API that would be great. Then we can get it merged back to master on this repo.**
+
+**May 18, 2016 - Current development to get a decent stable updated version is happening on the fork [westonganger/cordova-plugin-camera-preview](https://github.com/westonganger/cordova-plugin-camera-preview/tree/skanygin). This will be merged into master here once its working. Please direct all pull requests over there until further notice.**
 
 <p><b>Features:</b></p>
 <ul>
@@ -19,13 +22,13 @@ Show camera preview popup on top of the HTML.<br/>
 <p><b>Installation:</b></p>
 
 ```
-cordova plugin add cordova-plugin-camerapreview
+cordova plugin add https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git
 ```
 
 <b>Phonegap Build:</b><br/>
 
-```xml
-<gap:plugin name="cordova-plugin-camerapreview" version="0.9.0" source="plugins.cordova.io" />
+```
+<gap:plugin name="cordova-plugin-camera-preview" />
 ```
 
 <p><b>Methods:</b></p>
@@ -37,16 +40,14 @@ cordova plugin add cordova-plugin-camerapreview
   	<br/>
 	<br/>
 	When setting the toBack to TRUE, remember to add the style bellow on your app's HTML body element:
-```css
-html{
-  background-color: transparent;
-}
+```
+style="background-color='transparent'"
 ```
 </info>
 
 Javascript:
 
-```javascript
+```
 var tapEnabled = true; //enable tap take picture
 var dragEnabled = true; //enable preview box drag across the screen
 var toBack = true; //send preview box to the back of the webview
@@ -57,14 +58,14 @@ cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled
 <b>stopCamera()</b><br/>
 <info>Stops the camera preview instance.</info><br/>
 
-```javascript
+```
 cordova.plugins.camerapreview.stopCamera();
 ```
 
 <b>takePicture(size)</b><br/>
 <info>Take the picture, the parameter size is optional</info><br/>
 
-```javascript
+```
 cordova.plugins.camerapreview.takePicture({maxWidth:640, maxHeight:640});
 ```
 
@@ -72,10 +73,10 @@ cordova.plugins.camerapreview.takePicture({maxWidth:640, maxHeight:640});
 <b>setOnPictureTakenHandler(callback)</b><br/>
 <info>Register a callback function that receives the original picture and the image captured from the preview box.</info><br/>
 
-```javascript
+```
 cordova.plugins.camerapreview.setOnPictureTakenHandler(function(result){
-  document.getElementById('originalPicture').src = result[0];//originalPicturePath;
-  document.getElementById('previewPicture').src = result[1];//previewPicturePath;
+	document.getElementById('originalPicture').src = result[0];//originalPicturePath;
+	document.getElementById('previewPicture').src = result[1];//previewPicturePath;
 });
 ```
 
@@ -83,21 +84,21 @@ cordova.plugins.camerapreview.setOnPictureTakenHandler(function(result){
 <b>switchCamera()</b><br/>
 <info>Switch from the rear camera and front camera, if available.</info><br/>
 
-```javascript
+```
 cordova.plugins.camerapreview.switchCamera();
 ```
 
 <b>show()</b><br/>
 <info>Show the camera preview box.</info><br/>
 
-```javascript
+```
 cordova.plugins.camerapreview.show();
 ```
 
 <b>hide()</b><br/>
 <info>Hide the camera preview box.</info><br/>
 
-```javasript
+```
 cordova.plugins.camerapreview.hide();
 ```
 

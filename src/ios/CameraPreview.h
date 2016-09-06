@@ -5,7 +5,7 @@
 #import "CameraSessionManager.h"
 #import "CameraRenderController.h"
 
-@interface CameraPreview : CDVPlugin <TakePictureDelegate, UIGestureRecognizerDelegate>
+@interface CameraPreview : CDVPlugin <TakePictureDelegate>
 
 - (void) startCamera:(CDVInvokedUrlCommand*)command;
 - (void) stopCamera:(CDVInvokedUrlCommand*)command;
