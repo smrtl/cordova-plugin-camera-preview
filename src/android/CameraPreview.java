@@ -52,7 +52,7 @@ public class CameraPreview extends CordovaPlugin implements CameraActivity.Camer
       return setOnPictureTakenHandler(args, callbackContext);
     }
     else if (startCameraAction.equals(action)){
-      if (cordova.hasPermission(permission)) {
+      if (PermissionHelper.hasPermission(permission)) {
         return startCamera(args, callbackContext);
       }
       else {
