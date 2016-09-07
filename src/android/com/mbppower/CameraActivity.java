@@ -45,6 +45,17 @@ public class CameraActivity extends Fragment {
 		public void onPictureTaken(String originalPicturePath, String previewPicturePath);
 	}
 
+    private static final int FLASH_OFF = 0;
+    private static final int FLASH_ON = 1;
+    private static final int FLASH_AUTO = 2;
+
+    public int currentFlashMode = 2;
+
+    private static final int FOCUS_AUTO = 0;
+    private static final int FOCUS_CONTINUOUS = 1;
+
+    public int currentFocusMode = 0;
+
 	private CameraPreviewListener eventListener;
 	private static final String TAG = "CameraActivity";
 	public FrameLayout mainLayout;
