@@ -264,8 +264,9 @@
             // Save: filename
             CFUUIDRef uuid = CFUUIDCreate(NULL);
             CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
-            CFRelease(uuid);
             NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",uuidString]];
+            CFRelease(uuid);
+            CFRelease(uuidString);
             
             // Save: write
             if (![UIImageJPEGRepresentation([[UIImage alloc] initWithCGImage:finalImage], 1) writeToFile:imagePath atomically:NO])
@@ -286,6 +287,7 @@
                     NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
                 }
             }
+            CGImageRelease(finalImage);
 
             // DISPATCH
             dispatch_group_t group = dispatch_group_create();
